@@ -1,0 +1,41 @@
+import smtplib
+import random
+from email.message import EmailMessage
+#step 1 login credentials
+correct_username="admin"
+correct_password="admin123"
+username=input("enter username : ")
+password=input("enter password : ")
+
+#step 2 chcek login
+if username==correct_username and password==correct_password:
+    print(" correct username and password ")
+    # step 3 genrate otp
+    otp=random.randint(100000,999999)
+    sender_email="sender email id fill" # apna email
+    app_password="gmail se greate hoga "  # app password 16 character
+    receiver_email=input("enter your gmail to receive otp :")
+    #step 4 create email
+    msg=EmailMessage()
+    msg.set_content(f"your otp is {otp}")
+    msg["subject"]="otp_verification"
+    msg["From"]=sender_email
+    msg["To"]=receiver_email
+    #step 5 send email
+    try:
+        server=smtplib.SMTP("smtp.gmail.com",587)
+        server.starttls()
+        server.login(sender_email,app_password)
+        server.send_message(msg)
+        server.quit()
+        print("otp send successfully")
+        # step 6 otp verification0
+        user_otp=input("enter otp : ")
+        if user_otp==str(otp):
+            print("login successful")
+        else :
+            print("wrong otp login failed " )
+    except Exception as e:
+        print("error sending email : ",e)
+else:
+    print("login failed (wrong otp and password")
