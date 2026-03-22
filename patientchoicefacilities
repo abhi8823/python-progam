@@ -1,0 +1,36 @@
+class Patient:
+    def __init__(self,name,contactno):
+        self.name =name
+        self.contactno = contactno
+
+    def admission(self):
+        print("please select a patient ward ")
+        admission=input(" press 1 to GENERAL WARD \n press 2 to ICU WARD \n press 3 to dualroom\n press 4 to exit: ")
+        if admission=="1":
+            print("general ward")
+            self.cost=3000
+        elif admission=="2":
+            print("icu ward ")
+            self.cost=4000
+        elif admission=="3":
+            print("dual room")
+            self.cost=6000
+        elif admission=="4":
+            print("exit")
+    def bill(self):
+        days=int(input("enter no of days :"))
+        total=days*self.cost
+
+        print("-----patient data-----")
+        print("patient name :",self.name)
+        print("paitent contace no :",self.contactno)
+        print("ward charge per day :",self.cost)
+        print("total days :",days)
+        print("total bill :",total)
+name=input("enter a patient name : ")
+contactno=int(input("enter a patient contact no :"))
+P1=Patient(name,contactno)
+P1.admission()
+P1.bill()
+
+    
