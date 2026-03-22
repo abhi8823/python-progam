@@ -1,0 +1,39 @@
+# Quiz Questions (Dictionary)
+quiz = {
+    "1. Python ka creator kaun hai?": "guido van rossum",
+    "2. Python kis type ki language hai?": "interpreted",
+    "3. Python me list kis bracket me hoti hai?": "[]",
+    "4. Dictionary ka key kya hota hai?": "unique",
+    "5. Python file extension kya hoti hai?": ".py",
+    "6. 'len()' function ka use kya hai?": "length",
+    "7. Python me loop kaunse hote hain?": "for while",
+    "8. '==' ka matlab kya hai?": "equal",
+    "9. Python me comment ka symbol kya hai?": "#",
+    "10. Python me input lene ke liye function kaunsa hai?": "input"
+    
+}
+
+score = 0
+
+print("===== PYTHON QUIZ =====")
+
+for question, answer in quiz.items():
+    user_answer = input(question + "\nAnswer: ").lower()
+    
+    if user_answer == answer:
+        print("✅ Correct!\n")
+        score += 1
+    else:
+        print(f"❌ Wrong! Correct Answer: {answer}\n")
+
+print("===== RESULT =====")
+print(f"Your Score: {score}/10")
+
+if score == 10:
+    print("Excellent!")
+elif score >= 7:
+    print("Good Job!")
+elif score >= 5:
+    print("Average")
+else:
+    print("Try Again!")
